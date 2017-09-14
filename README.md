@@ -1,14 +1,14 @@
 # Projet : Magazine 
 Projet mis en place par le groupe Mastermind.  
-=============================================
+-----------------------------------------------------------
 
 > À la fois test, mise en pratique et en Action surtout.
 > Ok on a tous des projets, mais on fait quoi concrètement les gars ?
 > On commence par quoi ? *OK faisons le magazine !
 
-    Team : Marvin [Shewa66](https://github.com/shewa66) 
-           Steeven [Quantum](https://github.com/Quantum179)
-           Yannick [Symba7](https://github.com/Symba7) 
+Team : Marvin [Shewa66](https://github.com/shewa66) 
+       Steeven [Quantum](https://github.com/Quantum179)
+       Yannick [Symba7](https://github.com/Symba7) 
 
 ## Description
  Créer un webMagazine - Webzine ? 
