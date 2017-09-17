@@ -15,7 +15,7 @@ class Route:
         def get_magazine():
             return "Magazine"
 
-        @app.route("/users")
+        @app.route("/users/")
         def get_users():
             print("debug get_users")
             result_query = dumps(db.users.find())
