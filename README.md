@@ -46,3 +46,7 @@ Projet mis en place par le groupe Mastermind.
  - Un cerveau fonctionnel (au moins à 30%)
  - Un peu de temps 
  - Add.. 
+
+## TODOS
+
+ -
