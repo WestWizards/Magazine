@@ -48,5 +48,4 @@ Projet mis en place par le groupe Mastermind.
  - Add.. 
 
 ## TODOS
-
- -
+Voir [Project Onglet](https://github.com/7Woi/project-Magazine/projects/1) 
