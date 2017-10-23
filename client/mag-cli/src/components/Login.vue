@@ -10,19 +10,21 @@ import axios from 'axios'
 export default {
   data () {
     return {
-      login: {}
+      login: {},
+      auth: false
     }
   },
   methods: {
     signin: function () {
-      // TODO: valider les identifiants
+      // TODO: valider les identifiants (tester : veevalidate)
       axios.post('http://localhost:5000/login', this.login)
-      .then(function (res) {
+      .then( res => {
         console.log(res)
-        // TODO : store auth jwt
+        localStorage.setItem('token', res.jwt)
+        this.auth = true
       })
-      .catch(function (err) {
-        console.log(err)
+      .catch( e => {
+        console.log(e)
       })
     }
   },

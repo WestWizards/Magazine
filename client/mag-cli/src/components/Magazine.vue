@@ -16,8 +16,8 @@ export default {
   },
   created: function () {
     axios.get(`http://localhost:5000/posts`)
-    .then(response => {
-      this.posts = response.data
+    .then(res => {
+      this.posts = res.data
     })
     .catch(e => {
       console.log(e)

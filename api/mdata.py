@@ -30,11 +30,3 @@ with open('./data/comments.json', encoding=ENC) as data_file:
 db.comments.insert_many(comments)
 
 client.close()
-
-# Design patterns sur MongoDB :
-
-# Pour les aggregations : remplacer le ObjectId par l'url avec le uuid quand le client ne veut pas voir les détails, sinon faire l'aggregation les documents adéquats
-# Exemple url : afficher un auteur avec la liste de ses publications, cliquer sur le titre de la publication redirige vers celle-ci, au complet
-# Exemple détails : afficher une section "commentaires de lecteur" qui montrera un lecteur avec tous ses commentaires et non juste un lienmenant  au commentaire
-
-# Utiliser GridFS pour conserver des fichiers supérieurs à 16MB

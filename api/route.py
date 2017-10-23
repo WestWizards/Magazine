@@ -4,14 +4,15 @@ from bson.json_util import loads, dumps
 from pymongo import MongoClient
 import json
 from jsonschema import validate, ValidationError, SchemaError
+import utils as u
 
+# TODO IMPORTANT : use flask_restful for a real flask api (big refactor)
 # TODO : refactor routes
 # TODO : discuss about before_request and after_this_request decorators for response and headers settings
 # TODO : Custom response class. Link  : https://blog.miguelgrinberg.com/post/customizing-the-flask-response-class
 # TODO : discuss about the terminology in responses messages
 # (example : what to return when it's the right email but wrong password ?)
 # TODO : handle errors when mongodb is off during an request
-
 
 class Route:
     def __init__(self, app):
@@ -44,19 +45,21 @@ class Route:
                 res.response("Error server")
                 return res
 
-            # Retrieve corresponding user in database
-            result_query = list(db.users.find(login_data.email))
-            if(len(result_query)) == 0:
+            # TODO : custom fetchers
+            del login_data['password'] # TODO : find best way ?
+
+            result_query = db.users.find_one(login_data)
+
+            if result_query is None:
                 res.status_code = status.HTTP_401_UNAUTHORIZED
-                res.response = "Wrong login"
+                res.response("Wrong login")
             elif False:
                 # TODO : Compare passwords and return 401 if wrong password
                 res.status_code = status.HTTP_401_UNAUTHORIZED
-                res.response = "Wrong password"
+                res.response("Wrong password")
             else:
                 res.status_code = status.HTTP_200_OK
-                # TODO : create jwt for auth
-                res.response = dumps(result_query)
+                res.response = dumps({"user": result_query, "jwt": u.get_auth_token(result_query['username'])})
 
             return res
 
