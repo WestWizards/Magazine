@@ -11,10 +11,12 @@ if INIT_MODE == "dev":
     client.drop_database('magazine')
 db = client.magazine
 
-# TODO : generate hash from visible password
 
 with open('./data/users.json', encoding=ENC) as data_file:
     users = json.load(data_file)
+for u in users:
+    bin = u["password"].encode(ENC)
+    u["password"] = bcrypt.hashpw(bin, bcrypt.gensalt()) # Question : self == "this"
 db.users.insert_many(users)
 
 with open('./data/posts.json', encoding=ENC) as data_file:

@@ -1,6 +1,10 @@
 <template lang="pug">
   #home
     div(class='body')
+
+
+
+
       router-link(to="/magazine") Magazine
 </template>
 

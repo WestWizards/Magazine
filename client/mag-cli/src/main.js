@@ -8,6 +8,8 @@ import router from './router'
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'
 import 'muse-ui/dist/theme-carbon.css' // use carbon theme
+import axios from 'axios'
+Vue.prototype.$http = axios;
 Vue.use(MuseUI)
 
 Vue.config.productionTip = false

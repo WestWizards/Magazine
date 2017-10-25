@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+
 
 export default {
   data () {
@@ -18,12 +18,12 @@ export default {
     signin: function () {
       // TODO: valider les identifiants (tester : veevalidate)
       axios.post('http://localhost:5000/login', this.login)
-      .then( res => {
+      .then(res => {
         console.log(res)
         localStorage.setItem('token', res.jwt)
         this.auth = true
       })
-      .catch( e => {
+      .catch(e => {
         console.log(e)
       })
     }
