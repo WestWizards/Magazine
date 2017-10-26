@@ -27,6 +27,7 @@ class Route:
 
         @app.route("/login", methods=['POST'])
         def login():
+            # TODO : check if token exists in request.headers (user is already logged)
             req = utils.validate_request(request)
             res = utils.create_default_response(app)
 
