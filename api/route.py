@@ -57,16 +57,19 @@ class Route:
                     res.status_code = status.HTTP_200_OK
                     # TODO : format data before send response (prevent api to send sensible data
                     del data["password"]
+                    # TODO : Implement OAuth2 and review his flaws (exemple : https://tools.ietf.org/html/rfc6749#section-10.12 )            
                     res.response = dumps({"user": data, "jwt": utils.get_auth_token(result_query['username'])})
 
             return res
 
+        # TODO : add auth guard
         @app.route("/magazine", methods=['GET'])
         def get_magazine():
             # TODO : Discuter des données contenues dans l'accueil du magazine
 
             return "Magazine"
-
+        
+        # TODO : add auth guard
         @app.route("/users/", methods=['GET'])
         def get_users():
             res = utils.create_default_response(app)
@@ -83,6 +86,7 @@ class Route:
 
             return res
 
+        # Public route
         @app.route("/posts/", methods=['GET'])
         def get_posts():
             res = utils.create_default_response(app)
@@ -124,4 +128,13 @@ class Route:
             res.status_code = status.HTTP_200_OK
             res.response = dumps(db.posts.find(uuid_post))
 
+            return res
+        
+        @app.route("/posts/<int:uuidPost>/comments", methods=['GET'])
+        def get_comments(uuid_post):
+            res = utils.create_default_response(app)
+            
+            res.status.code = res.status_code = status.HTTP_200_OK
+            res.response = dumps(db.comments.find(uuid_post))
+            
             return res
