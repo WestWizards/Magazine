@@ -1,36 +1,36 @@
 <template lang="pug">
   #home
-    div(class='body')
-
-
-
-
-      router-link(to="/magazine") Magazine
+    .news-carousel
+      .inner-carousel
+        div Image 1
+        div Image 2
+        div Image 3
+      button.btnPrev Précédent
+      button.btnNext Suivant
+    .discover Discover
+    .trends Trends
+    .about About
 </template>
 
 <script>
+import HomeService from '../services/HomeService'
 
+// TODO : Carousel : https://www.w3schools.com/howto/howto_js_slideshow.asp
 export default {
   name: 'Home',
   data () {
     return {
-      posts: [{'user': 'Steeven'}]
+      news: []
     }
   },
-  components: {
-
-  },
   mounted: function () {
-    // TODO : faire la requête de l'api
-    console.log('debug mounted Home')
+    HomeService.getNews((res) => {
+      // TODO : bind returned news with props (use vuex for immutable data)
+    })
   }
 }
 </script>
 
-<style>
-#home {
-  width: 100%;
-  min-height: 90vh;
-}
-/* TODO : faire tous les medias queries*/
+<style lang='stylus'>
+  @import '../styles/home'
 </style>

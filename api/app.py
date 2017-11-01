@@ -7,6 +7,7 @@ from route import Route
 app = Flask(__name__)
 CORS(app)
 router = Route(app)
+# TODO : newsletter system (news = Newsletter(app)
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.

@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import Magazine from '@/components/Magazine'
 import Login from '@/components/Login'
 import Signup from '@/components/Signup'
+// TODO : add Post component
 
 Vue.use(Router)
 
@@ -12,8 +13,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: Home
+      redirect: '/home'
     },
     {
       path: '/home',

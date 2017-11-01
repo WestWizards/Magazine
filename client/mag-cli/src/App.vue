@@ -1,7 +1,7 @@
 <template lang="pug">
   #app
     app-nav
-    router-view
+    router-view.content-app
     app-footer
 </template>
 
@@ -21,6 +21,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang='stylus'>
+  // TODO : mettre les 3 blocs dans une grille
+  .content-app
+    padding-top 10vh !important //TODO : find best way to offset sticky header
 </style>

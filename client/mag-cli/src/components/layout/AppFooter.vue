@@ -7,8 +7,9 @@ export default {
 }
 </script>
 
-<style lang="css">
-  #footer {
-    text-align:center;
-  }
+<style lang="stylus">
+  #footer
+    width 100%
+    height 5vh
+    text-align center;
 </style>

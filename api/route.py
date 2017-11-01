@@ -25,6 +25,11 @@ class Route:
         def index():
             return "Bienvenue sur la page d'accueil du Magazine. Le site est actuellement en construction"
 
+        @app.route("/home", methods=['GET'])
+        def home():
+            # TODO : send important data for Home page (last Magazine numbers, top trending, discover new category, news)
+            return "Home"
+
         @app.route("/login", methods=['POST'])
         def login():
             # TODO : check if token exists in request.headers (user is already logged)
@@ -55,12 +60,19 @@ class Route:
                     res.response = dumps({"message": "Wrong password"})
                 else:
                     res.status_code = status.HTTP_200_OK
-                    # TODO : format data before send response (prevent api to send sensible data
+                    # TODO : format data before send response (prevent api to send sensible data)
+                    # TODO : check if token already exists
                     del data["password"]
                     # TODO : Implement OAuth2 and review his flaws (exemple : https://tools.ietf.org/html/rfc6749#section-10.12 )            
                     res.response = dumps({"user": data, "jwt": utils.get_auth_token(result_query['username'])})
 
             return res
+
+        # TODO : add auth guard
+        @app.route("/logout", methods=['POST'])
+        def logout():
+            # TODO : use request.data to find the user and unvalidate his auth token
+            return "Logout"
 
         # TODO : add auth guard
         @app.route("/magazine", methods=['GET'])
