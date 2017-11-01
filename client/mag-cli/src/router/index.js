@@ -1,15 +1,39 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Hello from '@/components/Hello'
+import Home from '@/components/Home'
+import Magazine from '@/components/Magazine'
+import Login from '@/components/Login'
+import Signup from '@/components/Signup'
+// TODO : add Post component
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history',
   routes: [
     {
       path: '/',
-      name: 'Hello',
-      component: Hello
+      redirect: '/home'
+    },
+    {
+      path: '/home',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/magazine',
+      name: 'Magazine',
+      component: Magazine
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
+    },
+    {
+      path: '/signup',
+      name: 'Signup',
+      component: Signup
     }
   ]
 })

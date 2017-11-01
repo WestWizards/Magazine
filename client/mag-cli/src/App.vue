@@ -1,23 +1,28 @@
-<template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view></router-view>
-  </div>
+<template lang="pug">
+  #app
+    app-nav
+    router-view.content-app
+    app-footer
 </template>
 
 <script>
+import AppNav from './components/layout/AppNav'
+import AppFooter from './components/layout/AppFooter'
+
 export default {
-  name: 'app'
+  data () {
+    return {
+      name: 'app'
+    }
+  },
+  components: {
+    AppNav, AppFooter
+  }
 }
 </script>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+<style lang='stylus'>
+  // TODO : mettre les 3 blocs dans une grille
+  .content-app
+    padding-top 10vh !important //TODO : find best way to offset sticky header
 </style>

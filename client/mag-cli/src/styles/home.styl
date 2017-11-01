@@ -1,0 +1,38 @@
+  $width = 100%
+  $card-height = 75vh
+
+
+  #home
+    width $width
+    min-height $height
+    border 2px solid black
+    padding 10px
+
+  .news-carousel
+    width $width
+    height $card-height
+    margin-bottom 10px // TODO : use CSS Grid gap instead
+    border 2px solid red
+
+  .card-home
+    width $width
+    height $card-height
+    margin-bottom 10px // TODO : use CSS Grid gap instead
+    border 2px solid red
+
+  .discover
+    @extends .card-home
+
+  .trends
+    @extends .card-home
+
+  .about
+    @extends .card-home
+
+  // .inner-carousel
+  //   width 100%
+  //   height $card-height
+  //
+  // .inner-carousel div
+  //   width 100%
+  //   height $card-height
