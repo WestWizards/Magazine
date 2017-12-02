@@ -1,7 +1,10 @@
-# mag-cli
+# Client Magazine
 
-> A Vue.js project
+> Desktop version of Magazine 
 
+## TODO 
+  - Fix ejs dependency vulnerability
+  
 ## Build Setup
 
 ``` bash
