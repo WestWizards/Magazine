@@ -4,6 +4,7 @@ import Home from '@/components/Home'
 import Magazine from '@/components/Magazine'
 import Login from '@/components/Login'
 import Signup from '@/components/Signup'
+import Recover from '@/components/Recover'
 // TODO : add Post component
 
 Vue.use(Router)
@@ -34,6 +35,11 @@ export default new Router({
       path: '/signup',
       name: 'Signup',
       component: Signup
+    },
+    {
+      path: '/recover',
+      name: 'Recover',
+      component: Recover
     }
   ]
 })

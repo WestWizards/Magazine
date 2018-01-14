@@ -22,7 +22,7 @@ def validate_request(req):
 
     if req.method is not 'GET':
         req.data = loads(req.data)
-        # TODO : escape data
+        # TODO : validate and escape data
 
         try:
             validate(req.data, schemas[url])
@@ -44,10 +44,6 @@ def create_default_response(app):
     return res
 
 
-def init_route(req, app):
-    return validate_request(req), create_default_response(app)
-
-
 def validate_user_password(password, db_hash):
     # TODO : escape string password
     return bcrypt.checkpw(password, db_hash)
@@ -56,6 +52,7 @@ def validate_user_password(password, db_hash):
 def get_auth_token(u):
     return jwt.encode({"username": u, }, SECRET_KEY, algorithm='HS256')
 
-
+# def disconnectUser(u):
+#     return jwt.
 
 init_schemas()

@@ -1,5 +1,5 @@
 <template lang="pug">
-  #magazine
+  #magazine Le Mag
 </template>
 
 <script>
@@ -19,9 +19,9 @@ export default {
 }
 </script>
 
-<style lang="css">
-#magazine {
-  width:100%;
-  min-height:90vh;
-}
+<style lang="stylus">
+#magazine
+  width 100%
+  min-height 90vh
+
 </style>

@@ -1,8 +1,8 @@
 <template lang="pug">
   #app
-    app-nav
+    app-nav.nav(isAuth=this.isAuth)
     router-view.content-app
-    app-footer
+    app-footer.footer
 </template>
 
 <script>
@@ -12,8 +12,12 @@ import AppFooter from './components/layout/AppFooter'
 export default {
   data () {
     return {
-      name: 'app'
+      name: 'app',
+      isAuth: false
     }
+  },
+  mounted: function () {
+    // TODO : vérifier si l'user est déjà connecté pour faire isAuth = true
   },
   components: {
     AppNav, AppFooter
@@ -22,7 +26,20 @@ export default {
 </script>
 
 <style lang='stylus'>
-  // TODO : mettre les 3 blocs dans une grille
+  // TODO : Test grid-template-areas property
+
+  #app
+    display grid
+    grid-template-columns 100%
+    grid-template-rows 10vh auto 5vh
+
+  .nav
+    grid-colum-start 1
+    grid-row-start 1
   .content-app
-    padding-top 10vh !important //TODO : find best way to offset sticky header
+    grid-colum-start 1
+    grid-row-start 2
+  .footer
+    grid-colum-start 1
+    grid-row-start 3
 </style>

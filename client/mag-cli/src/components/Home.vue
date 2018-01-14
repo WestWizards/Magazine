@@ -32,5 +32,26 @@ export default {
 </script>
 
 <style lang='stylus'>
-  @import '../styles/home'
+  $width = 100%
+  $card-height = 75vh
+
+
+  #home
+    width $width
+    min-height $height
+
+  .news-carousel
+    width $width
+    height 89vh
+    border 2px solid red
+
+  .card-home
+    width $width
+    height $card-height
+    border 2px solid red
+
+  .discover,
+  .trends,
+  .about
+    @extends .card-home
 </style>
